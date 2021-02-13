@@ -528,7 +528,12 @@ function resetajax(toreset){
       }
     });
   }
-
+  if (toreset === 'obs') {
+    $.ajax({
+      type: 'GET',
+      url: 'ajax/json/reset_obstruction_log.php' ,
+    });
+  }
 }
 
 function openmodal(folder,modal_template){

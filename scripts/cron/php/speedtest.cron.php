@@ -6,8 +6,7 @@ shell_exec('speedtest-cli > '.$_CONFIG["data_path"].'/speedtest.tmp');
 
 if($_CONFIG["history"]['speedstests'] == true){
 	
-	#$contents = file_get_contents($_CONFIG["data_path"].'/speedtest.tmp');
-	$contents = file_get_contents('./data/tmp.tmp');
+	$contents = file_get_contents($_CONFIG["data_path"].'/speedtest.tmp');
 
 	$array = explode("\n",$contents);
 
