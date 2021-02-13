@@ -55,8 +55,29 @@ require('boot.inc.php');
 		})
 
 
+		var snr_range_map = $.range_map({
+			'9': '#28a745',
+			'4.5': '#ffc107',
+			'0': 'red'
+		})
+
 		var speedtesthistory_range_map = ['#ec77f9','#7a6fbb'];
 
+		// SNR
+		const sparklineconfig5 = {
+		  type: 'bar',
+		  height: '50',
+		  barWidth: '3',
+		  disableInteraction: false,
+		  resize: false,
+		  barSpacing: '0',
+      chartRangeMin:0,
+      chartRangeMax:9,
+		  colorMap: snr_range_map,
+		  barColor: '#7ace4c'
+		}
+
+		
 		// PING
 		const sparklineconfig = {
 		  type: 'bar',
@@ -65,11 +86,10 @@ require('boot.inc.php');
 		  disableInteraction: false,
 		  resize: false,
 		  barSpacing: '0',
-          chartRangeMax:300,
+      chartRangeMax:300,
 		  colorMap: ping_range_map,
 		  barColor: '#7ace4c'
 		}
-
 		
 		// DOWN
 		const sparklineconfig2 = {
@@ -160,8 +180,6 @@ require('boot.inc.php');
 			<div class="row" style="font-size: 90%; margin-top: 10px;">
 				<div class="col-3 text-right"><strong>UPTIME</strong></div>
 				<div class="col-3 text-left"><span id="uptimeS" class="moreinfo" moreinfo="help-method.html" style=""></span></a></div>
-				<div class="col-3 text-right"><strong>SNR</strong> </div>
-				<div class="col-3 text-left"><span id="snr" style=""></span>/9</div>		
 				<div class="col-3 text-right"><strong>METHOD</strong></div>
 				<div class="col-3 text-left"><span id="gmethod" style=""></span> <a href="javascript://"  onClick="openmodal('html','help-method.html');"><sup>?</sup></a></div>
 				<div class="col-3 text-right"><strong></strong> </div>
@@ -169,8 +187,29 @@ require('boot.inc.php');
 
 			</div>
 
-			
+			<!-- SNR -->
+			<div class="row  border-top" style="margin-top: 20px;">
+				<div class="col-12 <?php echo $_CONFIG['styles']['bg_bars']; ?>">
+					<div style="white-space: nowrap;" class="section_title">
+						<i class="fa fa-wifi"></i> <strong>SNR</strong>  
+					</div> 
+				</div>
+			</div>
 
+			<div class="row border-bottom"  style="font-size: 90%; margin-top: 10px;">
+				<div class="col-3 text-right"><strong>NOW</strong> </div>
+				<div class="col-3 text-left"><div id="snr">---</div></div>
+				<div class="col-3 text-right"><strong>3 MIN AVG</strong> </div>
+				<div class="col-3 text-left"><div id="avgsnr">---</div></div>
+				<div class="col-12 text-left">
+					<div style="height: 50px; position: relative;">
+						<div id="sparklinedash5" style="opacity: 0.5; position: absolute; z-index: 1; height: 50px;">
+							<span class="bar"></span>
+						</div>	
+					</div>
+				</div>
+			</div>
+			
 			
 			<!-- LATENCY -->
 			<div class="row  border-top" style="margin-top: 20px;">

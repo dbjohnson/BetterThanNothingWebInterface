@@ -3,6 +3,7 @@ var obstructed = 1;
 var uptimeTracker = 1;
 var uptimeRepeatCounter = 0;
 var peakPingTracker = 1;
+const sparksnrline_data = []
 const sparkpingline_data = []
 const sparkuploadline_data = []
 const sparkdownloadline_data = []
@@ -86,11 +87,12 @@ window.onload = function() {
      console.log(thisclicked);
      openmodal('html',thisclicked)
   });
-
-
-
 };
 
+
+function avg(array) {
+  return array.reduce((l, r) => l + r, 0) / array.length
+}
 
 
 
@@ -139,7 +141,6 @@ function get_dishy(){
     url: ajax_dishy_url,
     dataType: 'json',
     success: function (data) {
-
       if(data.dishGetStatus.hasOwnProperty('downlinkThroughputBps')){
         //data.dishGetStatus.state = "UNRESPONSIVE";
       } else {
@@ -211,11 +212,7 @@ function get_dishy(){
         if(sparkpingline_data.length > maxGraphS){
           sparkpingline_data.shift();
         }
-        var latency_sum = 0;
-        for( var i = 0; i < sparkpingline_data.length; i++ ){
-          latency_sum += parseInt( sparkpingline_data[i], 10 ); //don't forget to add the base
-        }
-        var latency_avg = (latency_sum/sparkpingline_data.length).toFixed();
+        var latency_avg = avg(sparkpingline_data).toFixed();
         $("#avglatency").text(latency_avg+' ms');
 
         /*if(latency_avg < 60){
@@ -250,10 +247,18 @@ function get_dishy(){
         }
       }
       $("#uptimeS").text(format_sec(data.dishGetStatus.deviceState.uptimeS));
-      $("#snr").text(data.dishGetStatus.snr);
-
       $("#gmethod").text(data.dishGetStatus.method);
 
+
+      //#####################################################################
+      // SNR
+      $("#snr").text(data.dishGetStatus.snr);
+      sparksnrline_data.push(data.dishGetStatus.snr || 0)
+      if(sparksnrline_data.length > maxGraphS){
+        sparksnrline_data.shift();
+      }
+      $("#avgsnr").text(avg(sparksnrline_data).toFixed(1));
+      $('#sparklinedash5').sparkline(sparksnrline_data, sparklineconfig5)
 
       //#####################################################################
       // THROUGHPUT
@@ -364,7 +369,7 @@ function get_speedtest(){
     url: ajax_speedtest_url ,
     dataType: 'json',
     success: function (data) {
-         $("#downloadtest").html(data.speeds.down);
+        $("#downloadtest").html(data.speeds.down);
         $("#uploadtest").html(data.speeds.up);
         $("#downloadtestavg").html(data.speeds.avg_down);
         $("#uploadtestavg").html(data.speeds.avg_up);
@@ -378,7 +383,6 @@ function get_speedtest(){
     url: ajax_speedtest_history_url ,
     dataType: 'json',
     success: function (data) {
-      console.log(data)
       var speed_test_history_items = [];
       var speed_test_history_length = data.length;
 
@@ -396,7 +400,6 @@ function get_speedtest(){
       $.each(data,function(index, values){
         var stib  = []; // Temp Array to format UP/DOWN
         stib.push(Math.round(values[2].replace(" Mbps","").replace(/^\.*/, '')));
-        console.log(speed_test_history_items)
         stib.push(Math.round(values[1].replace(" Mbps","").replace(/^\.*/, '')));
 
         if(index > max_speed_test_history_length){
@@ -406,7 +409,6 @@ function get_speedtest(){
         speed_test_history_items.push(stib);
       })
 
-      console.log(speed_test_history_items)
       sparklineconfig4.chartRangeMax = 200
       sparklineconfig4.barWidth = speed_test_history_bar_width;
 
