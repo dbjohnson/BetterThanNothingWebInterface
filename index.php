@@ -383,6 +383,7 @@ require('boot.inc.php');
 	var ajax_speedtest_url = "<?php echo $_CONFIG['ajax']['speed_test']; ?>";
 	var ajax_speedtest_history_url = "<?php echo $_CONFIG['ajax']['speed_test_history']; ?>";
 	var ajax_dishy_url = "<?php echo $_CONFIG['ajax']['dishy']; ?>";
+	var ajax_dishy_history_url = "<?php echo $_CONFIG['ajax']['dishy_history']; ?>";
 
 	</script>
 

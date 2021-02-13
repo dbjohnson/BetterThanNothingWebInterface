@@ -46,6 +46,7 @@ $_CONFIG['results']['obstruction_log'] = $_CONFIG["path"].'/'.$datadir.'/'.$_CON
 $_CONFIG['ajax']['speed_test'] = 'ajax/json/speedtest.php';
 $_CONFIG['ajax']['speed_test_history'] = 'ajax/json/speedtest_history.php';
 $_CONFIG['ajax']['dishy'] = 'ajax/json/dishy.php';
+$_CONFIG['ajax']['dishy_history'] = 'ajax/json/dishy_history.php';
 
 // Dishy McFlatface
 // The json response from dishy must be saved to $_CONFIG['files']['dishy']
