@@ -35,7 +35,7 @@ $_CONFIG["web_data_path"] = $datadir;
 $_CONFIG['files']['maxspeed'] = $_CONFIG["path"].'/'.$datadir.'/maxspeeds.ser'; // Serialized array of max speeds up and down.
 $_CONFIG['files']['dishy'] = $_CONFIG["path"].'/'.$datadir.'/dishy.json'; // Serialized array of max speeds up and down.
 $_CONFIG['files']['dishy_history_12'] = $_CONFIG["path"].'/'.$datadir.'/history_12.json'; // Last 12 Hours
-$_CONFIG['files']['speedtest_history'] = $_CONFIG["path"].'/'.$datadir.'/speedtest_history.json'; // Last 12 Hours
+$_CONFIG['files']['speedtest_history'] = $_CONFIG["path"].'/'.$datadir.'/speedtest_history.csv'; // Last 12 Hours
 $_CONFIG['files']['uptime_history'] = $_CONFIG["path"].'/'.$datadir.'/uptime_history.csv'; // Last 12 Hours
 $_CONFIG['results']['speed_test'] = $_CONFIG["path"].'/'.$datadir.'/speedtest.txt'; // Plain text file
 

@@ -7,14 +7,14 @@
             "countryCode": "US"
         },
         "deviceState": {
-            "uptimeS": "10076"
+            "uptimeS": "57813"
         },
         "snr": 9,
         "obstructionStats": {
-            "fractionObstructed": 0.035494886,
+            "fractionObstructed": 0.03239111,
             "wedgeFractionObstructed": [
-                0.065056846,
-                0.081229955,
+                0.09025007,
+                0.04366182,
                 0,
                 0,
                 0,
@@ -27,8 +27,8 @@
                 0
             ],
             "wedgeAbsFractionObstructed": [
-                0.01580476,
-                0.019690126,
+                0.021319216,
+                0.011071893,
                 0,
                 0,
                 0,
@@ -40,13 +40,13 @@
                 0,
                 0
             ],
-            "validS": 9188.999,
-            "last24hObstructedS": 253
+            "validS": 37592.137,
+            "last24hObstructedS": 1162
         },
         "alerts": [],
         "state": "CONNECTED",
-        "downlinkThroughputBps": 12482.249,
-        "uplinkThroughputBps": 81025.56,
-        "popPingLatencyMs": 37.375
+        "downlinkThroughputBps": 16684.941,
+        "uplinkThroughputBps": 106157.836,
+        "popPingLatencyMs": 41.4
     }
 }

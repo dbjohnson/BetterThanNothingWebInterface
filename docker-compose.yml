@@ -3,7 +3,7 @@ services:
   php-apache:
     build: .
     ports:
-      - 80:80
+      - 6500:80
     environment:
       - TZ=US/Eastern
     volumes:

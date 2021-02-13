@@ -12,9 +12,9 @@ if($_CONFIG["history"]['speedstests'] == true){
 
 	preg_match_all("~Hosted by (.*?)\((.*?)\)\ \[(.*?) km\]\:\s(.*?)ms~",$array[4],$hosted);
 
-	$farray['mtime'] = date("Y-m-d H:i:s",time());
-	$farray['down'] = '"'.str_replace('Mbit/s','Mbps',str_replace('Download: ','',$array[6])).'"';
-	$farray['up'] = '"'.str_replace('Mbit/s','Mbps',str_replace('Upload: ','',$array[8])).'"';
+	$farray['mtime'] = date("Y-m-d H:i:s",strtotime($date. ' '.$timezone));
+	$farray['down'] = '"'.str_replace('Mbit/s','Mbps',preg_replace('.*Download: ','',$array[6])).'"';
+	$farray['up'] = '"'.str_replace('Mbit/s','Mbps',preg_replace('.*Upload: ','',$array[8])).'"';
 	$farray['by'] = '"'.$hosted[1][0].'"';
 	$farray['city'] = '"'.$hosted[2][0].'"';
 	$farray['distance'] = '"'.$hosted[3][0].'"';
