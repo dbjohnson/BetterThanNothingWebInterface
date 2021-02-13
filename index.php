@@ -130,7 +130,7 @@ require('boot.inc.php');
 		  disableInteraction: false,
 		  resize: false,
 		  barSpacing: '0',
-          chartRangeMax:150,
+      chartRangeMax:150,
 		  stackedBarColor: speedtesthistory_range_map
 		}
 		</script>
@@ -314,13 +314,6 @@ require('boot.inc.php');
 					</div>					
 					</div>
 				</div>
-				<div class="col-2 border-top border-right border-left text-left"><small><?php echo date("gA",strtotime('-24 hours')); ?></small></div>
-				<div class="col-2 border-top border-right text-center"><small><?php echo date("gA",strtotime('-19 hours')); ?></small></div>
-				<div class="col-2 border-top border-right text-center"><small><?php echo date("gA",strtotime('-14 hours')); ?></small></div>
-				<div class="col-2 border-top border-right text-center"><small><?php echo date("gA",strtotime('-9 hours')); ?></small></div>
-				<div class="col-2 border-top border-right text-center"><small><?php echo date("gA",strtotime('-4 hours')); ?></small></div>
-				<div class="col-2 border-top text-right border-right"><small>NOW</small></div>
-
 			</div>
 			
 			<!-- OBSTRUCTIONS -->

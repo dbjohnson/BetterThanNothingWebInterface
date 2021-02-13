@@ -374,7 +374,7 @@ function get_speedtest(){
         $("#downloadtestavg").html(data.speeds.avg_down);
         $("#uploadtestavg").html(data.speeds.avg_up);
         $("#total_speed_tests").html(data.speeds.total_tests);
-        $("#speedtest").html(data.speeds.mtime);
+        $("#speedtest").html((new Date(data.speeds.mtime + " UTC")).toLocaleString());
         //$("#nextspeedtest").html('<strong>Next Run</strong>: '+data.speeds.next);
     }
   });
@@ -411,7 +411,6 @@ function get_speedtest(){
 
       sparklineconfig4.chartRangeMax = 200
       sparklineconfig4.barWidth = speed_test_history_bar_width;
-
       $('#sparklinedash4').sparkline(speed_test_history_items, sparklineconfig4)
     }
   });
