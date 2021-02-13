@@ -3,50 +3,50 @@
         "deviceInfo": {
             "id": "private",
             "hardwareVersion": "rev1_pre_production",
-            "softwareVersion": "d9aff5fa-0334-49bc-b69d-b92a9c7871fa.release",
-            "countryCode": "CA"
+            "softwareVersion": "e68dfc80-fa1a-4fa4-9b21-d7ee2a918496.release",
+            "countryCode": "US"
         },
         "deviceState": {
-            "uptimeS": "102900"
+            "uptimeS": "10076"
         },
         "snr": 9,
         "obstructionStats": {
-            "fractionObstructed": 0.003058783,
+            "fractionObstructed": 0.035494886,
             "wedgeFractionObstructed": [
+                0.065056846,
+                0.081229955,
                 0,
                 0,
                 0,
-                0.05586675,
                 0,
                 0,
                 0,
                 0,
                 0,
-                0.024151305,
                 0,
                 0
             ],
             "wedgeAbsFractionObstructed": [
+                0.01580476,
+                0.019690126,
                 0,
                 0,
                 0,
-                0.0018913868,
                 0,
                 0,
                 0,
                 0,
                 0,
-                0.0011673963,
                 0,
                 0
             ],
-            "validS": 50273.19,
-            "last24hObstructedS": 135
+            "validS": 9188.999,
+            "last24hObstructedS": 253
         },
         "alerts": [],
         "state": "CONNECTED",
-        "downlinkThroughputBps": 13002.343,
-        "uplinkThroughputBps": 27086.814,
-        "popPingLatencyMs": 29.0625
+        "downlinkThroughputBps": 12482.249,
+        "uplinkThroughputBps": 81025.56,
+        "popPingLatencyMs": 37.375
     }
 }

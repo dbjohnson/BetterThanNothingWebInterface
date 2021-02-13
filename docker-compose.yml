@@ -6,3 +6,5 @@ services:
       - 80:80
     environment:
       - TZ=US/Eastern
+    volumes:
+      - ./:/var/www/html
